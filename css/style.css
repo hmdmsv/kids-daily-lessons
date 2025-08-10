@@ -8,21 +8,25 @@
   padding: 20px;
 }
 .card {
-  width: 250px;
-  height: 150px;
+  width: 320px;               /* بزرگ‌تر از 250px */
+  height: 200px;              /* ارتفاع بیشتر برای فضای محتوا */
   background-color: #f2f2f2;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 12px;        /* گوشه‌های نرم‌تر */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
+  font-size: 1.3rem;          /* متن بزرگ‌تر */
+  padding: 20px;              /* فضای داخلی بیشتر */
+  text-align: center;         /* برای متن چند خطی بهتره */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.20);
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 

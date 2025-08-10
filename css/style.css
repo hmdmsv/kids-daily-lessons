@@ -1,0 +1,337 @@
+/* فونت عمومی صفحه */
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+.card {
+  width: 250px;
+  height: 150px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .card {
+    width: 90%;
+    margin: 10px auto;
+  }
+}
+
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  background-image: url('../images/stars-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body {
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+.dark-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.dark-mode .dark-toggle {
+  background: #333333;
+  color: #f1f1f1;
+}
+
+/*body {
+  background-image: url('../images/stars-bg.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+} */
+
+/*body {
+  background-image: url('../images/stars-bg.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+} */
+
+/*
+body {
+  background-image: url('../images/stars-bg.png');
+  background-size: cover;
+  background-position: center;
+  animation: zoomBg 5s ease-in-out infinite alternate;
+}
+
+@keyframes zoomBg {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+*/
+/*
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* رنگ مشکی با شفافیت */
+/*  z-index: -1;
+} 
+
+/* هدر بالای صفحه */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 0;
+}
+
+.header img {
+  width: 60px;
+  height: auto;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #5a3e2b;
+}
+
+/* گرید آواتارها: دو ستون ثابت */
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* کارت هر آواتار */
+.avatar-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.avatar-card:hover {
+  transform: scale(1.05);
+}
+
+.avatar-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+/* نام فارسی و انگلیسی */
+.name {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.english-name {
+  font-size: 0.9em;
+  color: gray;
+}
+
+/* امتیاز */
+.score {
+  font-size: 16px;
+  color: #ff9800;
+}
+
+/* واکنش‌گرا برای موبایل */
+@media (max-width: 600px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .header img {
+    width: 40px;
+  }
+
+  .avatar-card img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .avatar-grid {
+    grid-template-columns: 1fr; /* یک ستون در موبایل */
+  }
+}
+
+/* حالت شب برای کارت‌ها */
+body.dark-mode .avatar-card {
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+}
+
+/* متن داخل کارت‌ها */
+body.dark-mode .name {
+  color: #f1f1f1;
+}
+
+body.dark-mode .english-name {
+  color: #cccccc;
+}
+
+body.dark-mode .score {
+  color: #ffd700; /* طلایی روشن */
+}
+/*
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0); /* حالت عادی: شفاف */
+  /*pointer-events: none;
+  z-index: -1;
+  transition: background 0.5s ease;
+}
+*/
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0); /* حالت عادی */
+  pointer-events: none;
+  z-index: -1;
+  transition: background 0.5s ease;
+}
+
+body.dark-mode::before {
+  background: rgba(0, 0, 0, 0.5); /* حالت شب */
+}
+/*
+.starfield {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background: transparent;
+}
+
+.starfield::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow:
+    50px 80px white,
+    120px 200px white,
+    300px 150px white,
+    400px 90px white,
+    600px 220px white;
+  animation: twinkle 2s infinite ease-in-out;
+}
+*/
+
+
+
+body.dark-mode .star {
+  display: block;
+}
+
+/*
+.star.white { background: white; box-shadow: 0 0 6px white; }
+.star.gold { background: #ffd700; box-shadow: 0 0 6px #ffd700; }
+.star.blue { background: #00bfff; box-shadow: 0 0 6px #00bfff; }
+.star.pink { background: #ff69b4; box-shadow: 0 0 6px #ff69b4; }
+
+*/
+
+.starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+body.dark-mode::before {
+  background: rgba(0, 0, 0, 0.5); /* حالت شب: نیمه‌تیره */
+}
+
+body.dark-mode .star {
+  display: block;
+}
+

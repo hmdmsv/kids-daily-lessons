@@ -2,53 +2,64 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>تمرین روزانه بچه ها</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #fef6e4;
-      font-family: 'Vazir', sans-serif;
-    }
-    .section {
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #ff6f61;
-    }
-  </style>
+  <title>مدرسه موش‌ها</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js"></script>
+
 </head>
 <body>
-  <div class="container mt-4">
-    <h1 class="text-center">تمرین روزانه بچه ها 🌟</h1>
 
-    <div class="section">
-      <h2>✏️ تمرین ریاضی</h2>
-      <p>اگر علی ۳ سیب دارد و ۲ سیب دیگر می‌گیرد، چند سیب دارد؟</p>
-      <input type="text" class="form-control" placeholder="پاسخ را وارد کن">
+  <div class="header">
+    <img src="mouse-left.png" alt="موش چپ">
+    <div class="title">مدرسه موش‌ها</div>
+    <img src="mouse-right.png" alt="موش راست">
+  </div>
+
+<button id="toggle-dark" class="dark-toggle">
+  🌙 حالت شب
+</button>
+
+
+
+<div class="container">
+  <div class="avatar-grid">
+    <div class="avatar-card" id="saba">
+      <img src="images/saba.png" alt="صبا">
+      <div class="name">
+        <strong>صبا</strong><br>
+        <span class="english-name">SABA</span>
+      </div>
+      <div class="score">⭐ <span class="score-value">0</span></div>
     </div>
-
-    <div class="section">
-      <h2>🧠 بازی کلمه‌ای انگلیسی</h2>
-      <p>کدام کلمه با حرف <strong>B</strong> شروع می‌شود؟</p>
-      <ul>
-        <li>Apple</li>
-        <li>Banana</li>
-        <li>Cat</li>
-      </ul>
-      <input type="text" class="form-control" placeholder="پاسخ را وارد کن">
+    <div class="avatar-card" id="roshana">
+      <img src="images/roshana.png" alt="روشنا">
+      <div class="name">
+        <strong>روشنا</strong><br>
+        <span class="english-name">ROSHANA</span>
+      </div>
+      <div class="score">⭐ <span class="score-value">0</span></div>
     </div>
-
-    <div class="section">
-      <h2>🌈 نکته علمی کوچک</h2>
-      <p>آیا می‌دانستی نور خورشید باعث رشد گیاهان می‌شود؟ امروز یک گیاه را در نور بگذار و فردا ببین چه تغییری کرده!</p>
+    <div class="avatar-card" id="bahar">
+      <img src="images/bahar.png" alt="بهار">
+      <div class="name">
+        <strong>بهار</strong><br>
+        <span class="english-name">BAHAR</span>
+      </div>
+      <div class="score">⭐ <span class="score-value">0</span></div>
+    </div>
+    <div class="avatar-card" id="roysa">
+      <img src="images/roysa.png" alt="رويسا">
+      <div class="name">
+        <strong>رويسا</strong><br>
+        <span class="english-name">ROYSA</span>
+      </div>
+      <div class="score">⭐ <span class="score-value">0</span></div>
     </div>
   </div>
+</div>
+
+
+<div class="starfield"></div>
 </body>
-
 </html>
-

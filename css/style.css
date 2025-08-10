@@ -33,11 +33,18 @@ body {
   margin: 0;
   padding: 0;
   direction: rtl;
-  background-image: url('../images/stars-bg.png');
+  background-image: url('../images/stars-bg-vmobile.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+/* حالت افقی */
+@media (orientation: landscape) {
+  body {
+    background-image: url('../images/stars-bg-hmobile.jpg');
+  }
+}
+
 
 body {
   transition: background-color 0.5s, color 0.5s;
@@ -184,10 +191,20 @@ body::before {
   color: #ff9800;
 }
 
+@media (min-width: 601px) {
+  body {
+    background-attachment: fixed;
+  }
+}
+
 @media (max-width: 600px) {
   .container {
     flex-direction: column;
     align-items: center; /* بهتره center باشه تا کارت‌ها وسط قرار بگیرن */
+    background-image: url('../images/stars-bg.png');
+    background-size: cover;
+    background-position: center;
+
   }
 
   .card {

@@ -26,16 +26,7 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-@media (max-width: 600px) {
-  .container {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .card {
-    width: 90%;
-    margin: 10px auto;
-  }
-}
+
 
 body {
   font-family: 'Vazirmatn', sans-serif;
@@ -193,24 +184,28 @@ body::before {
   color: #ff9800;
 }
 
-/* واکنش‌گرا برای موبایل */
 @media (max-width: 600px) {
-  .title {
-    font-size: 28px;
+  .container {
+    flex-direction: column;
+    align-items: center; /* بهتره center باشه تا کارت‌ها وسط قرار بگیرن */
   }
 
-  .header img {
-    width: 40px;
+  .card {
+    width: 95%;           /* کمی بیشتر از 90% برای پر کردن صفحه */
+    margin: 15px 0;        /* فاصله عمودی بیشتر بین کارت‌ها */
+    padding: 20px;         /* فضای داخلی بیشتر برای راحتی چشم */
+    font-size: 1.1rem;     /* بزرگ‌تر شدن متن داخل کارت */
+    min-height: 180px;     /* ارتفاع حداقلی برای حس "کارت بودن" */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* زیبایی بیشتر */
+    border-radius: 10px;   /* گوشه‌های نرم‌تر */
   }
 
-  .avatar-card img {
-    width: 80px;
-    height: 80px;
-  }
+  .card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
 
-  .avatar-grid {
-    grid-template-columns: 1fr; /* یک ستون در موبایل */
-  }
 }
 
 /* حالت شب برای کارت‌ها */

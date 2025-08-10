@@ -1,64 +1,60 @@
-/* فونت عمومی صفحه */
-.container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-}
-.card {
-  width: 320px;               /* بزرگ‌تر از 250px */
-  height: 200px;              /* ارتفاع بیشتر برای فضای محتوا */
-  background-color: #f2f2f2;
-  border-radius: 12px;        /* گوشه‌های نرم‌تر */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  font-size: 1.3rem;          /* متن بزرگ‌تر */
-  padding: 20px;              /* فضای داخلی بیشتر */
-  text-align: center;         /* برای متن چند خطی بهتره */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card:hover {
-  transform: scale(1.20);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-
-
+/* فونت و تنظیمات پایه */
 body {
   font-family: 'Vazirmatn', sans-serif;
   margin: 0;
   padding: 0;
   direction: rtl;
-  background-image: url('../images/stars-bg-vmobile.jpg');
+  background-image: url('../images/stars-bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: background-color 0.5s, color 0.5s;
 }
-/* حالت افقی */
+/* حالت شب */
+body.dark-mode {
+  background-image: url('../images/stars-bg.jpg'); /* یا نسخه شب */
+  background-color: rgba(18, 18, 18, 0.6);
+}
+
+
+/* حالت شب */
+/*
+body.dark-mode {
+  background-color: rgba(18, 18, 18, 0.8);
+  color: #f1f1f1;
+}
+*/
+/* فقط در حالت landscape و وقتی dark-mode فعال نیست */
+body:not(.dark-mode) {
+  background-image: url('../images/stars-bg.jpg');
+}
+
+/* حالت landscape */
 @media (orientation: landscape) {
   body {
     background-image: url('../images/stars-bg-hmobile.jpg');
   }
 }
 
-
-body {
-  transition: background-color 0.5s, color 0.5s;
+/* لایه نیمه‌تیره در حالت شب */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  pointer-events: none;
+  z-index: -1;
+  transition: background 0.5s ease;
 }
 
-.dark-mode {
-  background-color: #121212;
-  color: #f1f1f1;
+body.dark-mode::before {
+  background: rgba(0, 0, 0, 0.5);
 }
 
+/* دکمه تغییر حالت شب */
 .dark-toggle {
   position: fixed;
   top: 20px;
@@ -70,62 +66,15 @@ body {
   cursor: pointer;
   font-size: 16px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  z-index: 1000;
 }
 
-.dark-mode .dark-toggle {
+body.dark-mode .dark-toggle {
   background: #333333;
   color: #f1f1f1;
 }
 
-/*body {
-  background-image: url('../images/stars-bg.png');
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  animation: fadeIn 2s ease-in forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-} */
-
-/*body {
-  background-image: url('../images/stars-bg.png');
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-} */
-
-/*
-body {
-  background-image: url('../images/stars-bg.png');
-  background-size: cover;
-  background-position: center;
-  animation: zoomBg 5s ease-in-out infinite alternate;
-}
-
-@keyframes zoomBg {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.1);
-  }
-}
-*/
-/*
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* رنگ مشکی با شفافیت */
-/*  z-index: -1;
-} 
-
-/* هدر بالای صفحه */
+/* هدر */
 .header {
   display: flex;
   justify-content: center;
@@ -145,39 +94,79 @@ body::before {
   color: #5a3e2b;
 }
 
-/* گرید آواتارها: دو ستون ثابت */
+/* کانتینر کارت‌ها */
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;         /* بیشتر از 20px */
+  padding: 40px 20px; /* فضای بالا و پایین بیشتر */
+
+}
+
+/* کارت‌ها */
+.card {
+  width: 380px;
+  min-height: 240px;
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* گرید آواتارها */
 .avatar-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+  gap: 40px;           /* فاصله بین کارت‌ها بیشتر */
   max-width: 600px;
-  margin: 0 auto 50px;
-  padding: 0 20px;
+  margin: 0 auto 70px; /* فاصله پایین بیشتر */
+  padding: 0 30px;
   text-align: center;
 }
 
-/* کارت هر آواتار */
+/* کارت آواتار */
 .avatar-card {
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 20px;
-  transition: transform 0.3s ease;
+  padding: 30px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  width: 180px; /* اگر بخوای عرض مشخص باشه */
+ 
 }
 
 .avatar-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.1) rotate(3deg);
+}
+
+.card:hover,
+.avatar-card:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 .avatar-card img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   margin-bottom: 10px;
   object-fit: cover;
 }
 
-/* نام فارسی و انگلیسی */
+/* متن داخل کارت */
 .name {
   font-size: 20px;
   color: #333;
@@ -189,44 +178,9 @@ body::before {
   color: gray;
 }
 
-/* امتیاز */
 .score {
   font-size: 16px;
   color: #ff9800;
-}
-
-@media (min-width: 601px) {
-  body {
-    background-attachment: fixed;
-  }
-}
-
-@media (max-width: 600px) {
-  .container {
-    flex-direction: column;
-    align-items: center; /* بهتره center باشه تا کارت‌ها وسط قرار بگیرن */
-    background-image: url('../images/stars-bg.png');
-    background-size: cover;
-    background-position: center;
-
-  }
-
-  .card {
-    width: 95%;           /* کمی بیشتر از 90% برای پر کردن صفحه */
-    margin: 15px 0;        /* فاصله عمودی بیشتر بین کارت‌ها */
-    padding: 20px;         /* فضای داخلی بیشتر برای راحتی چشم */
-    font-size: 1.1rem;     /* بزرگ‌تر شدن متن داخل کارت */
-    min-height: 180px;     /* ارتفاع حداقلی برای حس "کارت بودن" */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* زیبایی بیشتر */
-    border-radius: 10px;   /* گوشه‌های نرم‌تر */
-  }
-
-  .card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
 }
 
 /* حالت شب برای کارت‌ها */
@@ -235,7 +189,6 @@ body.dark-mode .avatar-card {
   box-shadow: 0 4px 12px rgba(255,255,255,0.1);
 }
 
-/* متن داخل کارت‌ها */
 body.dark-mode .name {
   color: #f1f1f1;
 }
@@ -245,78 +198,42 @@ body.dark-mode .english-name {
 }
 
 body.dark-mode .score {
-  color: #ffd700; /* طلایی روشن */
-}
-/*
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0); /* حالت عادی: شفاف */
-  /*pointer-events: none;
-  z-index: -1;
-  transition: background 0.5s ease;
-}
-*/
-
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0); /* حالت عادی */
-  pointer-events: none;
-  z-index: -1;
-  transition: background 0.5s ease;
+  color: #ffd700;
 }
 
-body.dark-mode::before {
-  background: rgba(0, 0, 0, 0.5); /* حالت شب */
+/* طراحی واکنش‌گرا برای موبایل */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 95%;
+    min-height: 260px;
+    margin: 15px 0;
+    padding: 30px;
+    font-size: 1.6rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+   .avatar-card {
+    width: 90%;
+    padding: 25px;
+  }
+
+  .avatar-card img {
+    width: 100px;
+    height: 100px;
+  }
+
 }
-/*
-.starfield {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-  background: transparent;
-}
-
-.starfield::after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: white;
-  box-shadow:
-    50px 80px white,
-    120px 200px white,
-    300px 150px white,
-    400px 90px white,
-    600px 220px white;
-  animation: twinkle 2s infinite ease-in-out;
-}
-*/
-
-
-
-body.dark-mode .star {
-  display: block;
-}
-
-/*
-.star.white { background: white; box-shadow: 0 0 6px white; }
-.star.gold { background: #ffd700; box-shadow: 0 0 6px #ffd700; }
-.star.blue { background: #00bfff; box-shadow: 0 0 6px #00bfff; }
-.star.pink { background: #ff69b4; box-shadow: 0 0 6px #ff69b4; }
-
-*/
-
 .starfield {
   position: fixed;
   top: 0;
@@ -324,9 +241,19 @@ body.dark-mode .star {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 999;
+  z-index: 0;
   overflow: hidden;
 }
+
+.card,
+.avatar-card,
+.header,
+.container,
+.dark-toggle {
+  position: relative;
+  z-index: 1; /* بالاتر از ستاره‌ها */
+}
+
 
 .star {
   position: absolute;
@@ -337,17 +264,8 @@ body.dark-mode .star {
   animation: twinkle 2s infinite ease-in-out;
 }
 
-
 @keyframes twinkle {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.2; }
-}
-
-body.dark-mode::before {
-  background: rgba(0, 0, 0, 0.5); /* حالت شب: نیمه‌تیره */
-}
-
-body.dark-mode .star {
-  display: block;
 }
 

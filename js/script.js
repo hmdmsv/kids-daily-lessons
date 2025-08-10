@@ -20,18 +20,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const starfield = document.querySelector('.starfield');
 
   toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
+  document.body.classList.toggle('dark-mode');
 
-    const isDark = document.body.classList.contains('dark-mode');
+  const isDark = document.body.classList.contains('dark-mode');
 
-    if (isDark) {
-      if (starfield.children.length === 0) {
-        createStars();
-      }
-    } else {
-      starfield.innerHTML = '';
+  if (isDark) {
+    if (starfield.children.length === 0) {
+      createStars(100);
     }
-  });
+  } else {
+    starfield.innerHTML = '';
+  }
+});
+
+
 });
 
 function createStars(count = 100) {
